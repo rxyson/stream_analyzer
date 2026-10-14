@@ -1,0 +1,16 @@
+# виртуальное окружение
+.venv/
+
+# кэши Python и инструментов
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+
+# служебные файлы установки пакета
+*.egg-info/
+build/
+dist/
+
+# мусор macOS
+.DS_Store
