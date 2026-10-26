@@ -137,3 +137,26 @@ def test_unknown_format(tmp_path):
         main(["analyze", str(TEST_FILES / "valid.jsonl"), "--format", "xml"])
 
     assert exit_info.value.code == 2
+
+
+"""Тесты режима '--skip-invalid'."""
+
+
+def test_broken_jsonl_skipped(tmp_path):
+    output = tmp_path / "report.json"
+
+    assert run_analyze(output, ["broken.jsonl"], skip=True) == 0
+
+    report = read_report(output)
+    assert report["total_events"] == 2
+    assert report["skipped_lines"] == 1
+
+
+def test_broken_csv_skipped(tmp_path):
+    output = tmp_path / "report.json"
+
+    assert run_analyze(output, ["broken.csv"], fmt="csv", skip=True) == 0
+
+    report = read_report(output)
+    assert report["total_events"] == 1
+    assert report["skipped_lines"] == 1
