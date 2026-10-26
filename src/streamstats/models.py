@@ -3,7 +3,7 @@ from datetime import datetime
 
 from .errors import InvalidEventError, InvalidTimestampError
 
-LEVELS = frozenset({"DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"})
+LEVELS = ("DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL")
 REQUIRED_FIELDS = ("timestamp", "level", "source", "message")
 
 
@@ -43,6 +43,6 @@ def parse_event(record: dict) -> Event:
         ) from error
 
     if timestamp.tzinfo is None:
-        raise InvalidTimestampError(f"{raw_timestamp!r} не содержит информации о часовом поясе.")
+        raise InvalidTimestampError(f"{raw_timestamp!r} не содержит часового пояса.")
 
     return Event(timestamp=timestamp, level=level, source=source, message=record["message"])

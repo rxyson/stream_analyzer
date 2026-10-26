@@ -1,0 +1,5 @@
+{"timestamp": "2026-10-07T12:00:01+03:00", "level": "ERROR", "source": "db", "message": "Нет связи"}
+{"timestamp": "2026-10-07T12:00:02+03:00", "level": "ERROR", "source": "api", "message": "Таймаут"}
+{"timestamp": "2026-10-07T12:00:03+03:00", "level": "CRITICAL", "source": "db", "message": "Упала база"}
+{"timestamp": "2026-10-07T12:00:04+03:00", "level": "CRITICAL", "source": "loader", "message": "Нет файла"}
+{"timestamp": "2026-10-07T12:00:05+03:00", "level": "ERROR", "source": "api", "message": "Отказ"}
