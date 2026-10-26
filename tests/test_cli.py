@@ -51,7 +51,7 @@ def test_valid_csv_report(tmp_path):
     assert read_report(output)["total_events"] == 2
 
 
-"""Поврежденные строки в обычном режиме."""
+"""Поврежденные строки JSONL в обычном режиме."""
 
 
 def test_broken_jsonl_stops_code_2(tmp_path):
@@ -66,7 +66,7 @@ def test_broken_jsonl_error():
         analyze_files([TEST_FILES / "broken.jsonl"], "jsonl", skip_invalid=False)
 
 
-"""Поврежденные строки с режимом: '--skip-invalid'."""
+"""Поврежденные строки CSV в обычном режиме."""
 
 
 def test_broken_csv_stops_code_2(tmp_path):
